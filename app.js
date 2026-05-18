@@ -8,6 +8,9 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
+const { aclLocals } = require('./acl');
+app.use(aclLocals);
+
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
